@@ -1,0 +1,17 @@
+version: '3.9'  # docker-composeのバージョン選択
+services:
+  frontend:  # サービス名
+    build:  # Dockerfileの設定
+      context: .  # Dockerfileを置いているディレクトリ
+      dockerfile: Dockerfile  # Dockerfileのファイル名
+    working_dir: /app  # 作業ディレクトリを指定
+    volumes:
+      # - ./:/app:cached # プロジェクト作成時に利用
+      - ./vue3:/app:cached # 作成したプロジェクトをマウント
+      - node_modules:/app/node_modules  # 特定のパスを独立した名前付きボリュームとして定義
+    tty: true  # コンテナを正常終了するのを防ぐ
+    ports:
+      - '5173:5173'  # 公開用のポート指定。ホスト側:コンテナ側
+    command: yarn dev --host  # viteの開発環境実行コマンド
+volumes:  # 名前付きボリュームの設定
+  node_modules:
