@@ -6,12 +6,14 @@ services:
       dockerfile: Dockerfile  # Dockerfileのファイル名
     working_dir: /app  # 作業ディレクトリを指定
     volumes:
-      # - ./:/app:cached # プロジェクト作成時に利用
       - ./vue3:/app:cached # 作成したプロジェクトをマウント
-      - node_modules:/app/node_modules  # 特定のパスを独立した名前付きボリュームとして定義
+      # - ./vue3-tmp:/app:cached # 作成したプロジェクトをマウント 初期構築作業用
     tty: true  # コンテナを正常終了するのを防ぐ
     ports:
-      - '5173:5173'  # 公開用のポート指定。ホスト側:コンテナ側
+      - '5173:5173'  # 公開用のポート指定。ホスト側:コンテナ側 vite
+      - '3000:3000'  # 公開用のポート指定。ホスト側:コンテナ側 vite(vuetify default)
+      - '4173:4173'  # 公開用のポート指定。ホスト側:コンテナ側 vite preview
     command: yarn dev --host  # viteの開発環境実行コマンド
+    # command: /bin/sh -c "yarn install && yarn dev --host"
 volumes:  # 名前付きボリュームの設定
   node_modules:

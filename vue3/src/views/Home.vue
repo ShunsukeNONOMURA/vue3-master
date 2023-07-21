@@ -1,9 +1,7 @@
-<template lang="pug">
-v-app
-  v-main
-    HelloWorld
+<template>
+  <HelloWorld />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import HelloWorld from '@/components/HelloWorld.vue'
 </script>
