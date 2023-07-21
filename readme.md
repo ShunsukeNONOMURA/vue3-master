@@ -18,6 +18,9 @@ docker compose build --no-cache
 # 開発環境起動
 docker compose up
 
+# prettierとlintの実行
+./shell/fix.sh
+
 # 開発環境起動時にプレビュー環境を起動する
 ./shell/preview.sh
 
@@ -33,9 +36,14 @@ docker compose up
 - vite-plugin-pug
 - eslint
 
+## 開発参考情報
+- [vuetify3 guide](https://vuetifyjs.com/en/getting-started/installation/)
+- [vue-router guide](https://router.vuejs.org/guide/)
+
 ## 初期構築
 - [`yarn create vuetify` で初期構築](https://vuetifyjs.com/en/getting-started/installation/)
 - [`vite-plugin-pug` を追加](https://www.npmjs.com/package/vite-plugin-pug)
+- [Vite + Vue3にESLintとPrettierを導入](https://zenn.dev/chida/articles/c0bd3ad56ed06b)
 ```
 # プロジェクトの初期構築
 yarn create vuetify
@@ -50,6 +58,9 @@ yarn create vuetify
 
 # pugの追加
 yarn add -D vite-plugin-pug
+
+# prettierの追加
+yarn add -D prettier @vue/eslint-config-prettier
 ```
 
 ### vite.config.ts
@@ -106,6 +117,9 @@ export default defineConfig({
 ### package.json
 - [Failed to resolve entry for package "/app" の対応](https://github.com/vitejs/vite/issues/6859#issuecomment-1472940540)
     - `"main": "./src/main.ts",` を追記する
+- Prettierの導入
+    - `"format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue}",` を追記する
+    - `"fix": "yarn format && yarn lint",` を追記する
 ```
 [vite] Internal server error: Failed to resolve entry for package "/app". The package may have incorrect main/module/exports specified in its package.json.
 ```
@@ -119,7 +133,9 @@ export default defineConfig({
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --fix --ignore-path .gitignore"
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue}",
+    "fix": "yarn format && yarn lint"    
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
@@ -135,9 +151,11 @@ export default defineConfig({
     "@types/node": "^18.15.0",
     "@types/webfontloader": "^1.6.35",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",
     "eslint": "^8.0.0",
     "eslint-plugin-vue": "^9.0.0",
+    "prettier": "^3.0.0",
     "typescript": "^5.0.0",
     "vite": "^4.2.0",
     "vite-plugin-pug": "^0.3.2",
