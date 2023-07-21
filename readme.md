@@ -4,11 +4,25 @@ DockerでVue3開発環境を起動するためのファイル群。
 
 ## 使い方
 ```
+# 導入
 git clone https://github.com/ShunsukeNONOMURA/vue3-master.git
 cd vue3-master
+
+# 初期構築
 docker compose build --no-cache
-docker compose run frontend yarn install
+
+# ライブラリのインストール
+# 初期構築時や環境更新する際は適宜install.shを使ってnote_modulesを更新
+./shell/install.sh
+
+# 開発環境起動
 docker compose up
+
+# 開発環境起動時にプレビュー環境を起動する
+./shell/preview.sh
+
+# 開発環境起動時にバンドルする
+./shell/build.sh
 ```
 
 ## 搭載プラグイン
