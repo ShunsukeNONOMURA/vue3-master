@@ -1,6 +1,7 @@
 version: '3.9'  # docker-composeのバージョン選択
 services:
   frontend:  # サービス名
+    # container_name: vue3-master
     build:  # Dockerfileの設定
       context: .  # Dockerfileを置いているディレクトリ
       dockerfile: Dockerfile  # Dockerfileのファイル名
@@ -10,10 +11,10 @@ services:
       # - ./vue3-tmp:/app:cached # 作成したプロジェクトをマウント 初期構築作業用
     tty: true  # コンテナを正常終了するのを防ぐ
     ports:
-      - '5173:5173'  # 公開用のポート指定。ホスト側:コンテナ側 vite
+      # - '5173:5173'  # 公開用のポート指定。ホスト側:コンテナ側 vite
       - '3000:3000'  # 公開用のポート指定。ホスト側:コンテナ側 vite(vuetify default)
       - '4173:4173'  # 公開用のポート指定。ホスト側:コンテナ側 vite preview
-    command: yarn dev --host  # viteの開発環境実行コマンド
-    # command: /bin/sh -c "yarn install && yarn dev --host"
-volumes:  # 名前付きボリュームの設定
-  node_modules:
+    # command: yarn dev --host  # viteの開発環境実行コマンド
+    # command: yarn preview --host  # viteの開発環境実行コマンド
+# volumes:  # 名前付きボリュームの設定
+#   node_modules:
