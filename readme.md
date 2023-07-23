@@ -18,7 +18,10 @@ docker compose build --no-cache
 # 開発環境起動
 docker compose up
 
-# prettierとlintの実行
+# 開発環境起動時にlint実行
+./shell/lint.sh
+
+# 開発環境起動時にprettierとlintの実行
 ./shell/fix.sh
 
 # 開発環境起動時にプレビュー環境を起動する
@@ -35,6 +38,7 @@ docker compose up
 - pinia
 - vite-plugin-pug
 - eslint
+- eslint-plugin-vue-pug
 
 ## 開発参考情報
 - [vuetify3 guide](https://vuetifyjs.com/en/getting-started/installation/)
@@ -43,7 +47,10 @@ docker compose up
 ## 初期構築
 - [`yarn create vuetify` で初期構築](https://vuetifyjs.com/en/getting-started/installation/)
 - [`vite-plugin-pug` を追加](https://www.npmjs.com/package/vite-plugin-pug)
+- [eslint-plugin-vue-pug](https://github.com/rashfael/eslint-plugin-vue-pug)
 - [Vite + Vue3にESLintとPrettierを導入](https://zenn.dev/chida/articles/c0bd3ad56ed06b)
+- [npm/yarnを実行したときに’No license field’が出た時の対処法](https://cpoint-lab.co.jp/article/202104/19606/)
+
 ```
 # プロジェクトの初期構築
 yarn create vuetify
@@ -58,6 +65,7 @@ yarn create vuetify
 
 # pugの追加
 yarn add -D vite-plugin-pug
+yarn add -D eslint-plugin-vue-pug
 
 # prettierの追加
 yarn add -D prettier @vue/eslint-config-prettier
