@@ -2,13 +2,14 @@
   "name": "vue3",
   "version": "0.0.0",
   "main": "./src/main.ts",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue}",
-    "fix": "yarn format && yarn lint"    
+    "fix": "yarn format && yarn lint"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
@@ -28,6 +29,7 @@
     "@vue/eslint-config-typescript": "^11.0.0",
     "eslint": "^8.0.0",
     "eslint-plugin-vue": "^9.0.0",
+    "eslint-plugin-vue-pug": "^0.6.0",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0",
     "vite": "^4.2.0",
