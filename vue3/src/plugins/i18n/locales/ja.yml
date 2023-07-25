@@ -1,3 +1,6 @@
+case:
+  add: 追加
+  delete: 削除
 domain:
   user:
     id: ユーザID

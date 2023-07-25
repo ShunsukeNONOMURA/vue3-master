@@ -1,6 +1,6 @@
 <template lang="pug">
 base-button(
-) 追加
+) {{ $t("case.add") }}
 </template>
 
 <script lang="ts" setup></script>

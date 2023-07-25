@@ -1,6 +1,6 @@
 <template lang="pug">
 base-text-field(
-  label="UserId"
+  :label=`$t("domain.user.id")`
 )
 </template>
 

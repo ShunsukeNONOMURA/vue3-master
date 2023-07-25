@@ -10,6 +10,10 @@ const locals = { name: "My Pug" }
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
+// vueI18n
+import { resolve, dirname } from "node:path";
+import vueI18n from "@intlify/vite-plugin-vue-i18n";
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -24,6 +28,13 @@ export default defineConfig({
       options, 
       locals
     ),
+    // https://zenn.dev/smiura0222/articles/c8d9f5afa074cc
+    vueI18n({
+      include: resolve(
+        dirname(fileURLToPath(import.meta.url)),
+        "./src/plugins/i18n/locales/**"
+      ),
+    }),
   ],
   define: { 
     'process.env': {},

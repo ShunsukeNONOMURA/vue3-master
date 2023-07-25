@@ -1,6 +1,6 @@
 <template lang="pug">
 base-select(
-  label="UserRole"
+  :label=`$t("domain.user.role")`
 )
 </template>
 

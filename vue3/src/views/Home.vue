@@ -10,12 +10,10 @@ user-role-select(
   :items="store.userRoleItems"
   v-model="store.tUser.userRole"
 )
-
 add-button(
   @click="store.userAppend"
 )
 
-div {{$t("hello")}}
 </template>
 
 <script lang="ts" setup>

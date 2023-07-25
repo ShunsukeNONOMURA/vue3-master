@@ -184,3 +184,4 @@ export default defineConfig({
 ## memo
 - [Vue I18n での多言語化に対応する](https://zenn.dev/sa2knight/books/storybook-7-with-vue-3/viewer/vue-i18n)
   - yarn add vue-i18n
+  - yarn add -D @intlify/vite-plugin-vue-i18n

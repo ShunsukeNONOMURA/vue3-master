@@ -56,12 +56,7 @@ interface Emits {
   (e: 'onDelete', v: null): void
 }
 const emits = defineEmits<Emits>()
-
-// const emits = defineEmits<{
-//   (e: 'alertDooo', v: null): void;
-// }>()
 function onDelete(item: any) {
   emits('onDelete', item)
-  // console.log(item)
 }
 </script>
