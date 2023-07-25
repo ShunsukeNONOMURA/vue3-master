@@ -11,6 +11,9 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify } from 'vuetify'
 
+// [Vuetify3のv-data-tableを試してみる](https://zenn.dev/gz/articles/bffadd22dd530e)
+import { VDataTable } from 'vuetify/labs/VDataTable'
+
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   theme: {
@@ -22,5 +25,8 @@ export default createVuetify({
         },
       },
     },
+  },
+  components: {
+    VDataTable,
   },
 })

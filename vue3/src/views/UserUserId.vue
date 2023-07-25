@@ -1,0 +1,14 @@
+<template lang="pug">
+div {{ user }}
+</template>
+
+<script lang="ts" setup>
+import { useRoute } from 'vue-router'
+const route = useRoute()
+// console.log(route.query)
+// console.log(route.params)
+
+import { useAppStore } from '@/store/app'
+const store = useAppStore()
+const user = store.findUser(route.params.userId as string)
+</script>

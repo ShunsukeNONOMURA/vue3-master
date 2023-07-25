@@ -17,7 +17,16 @@ const routes = [
       },
     ],
   },
-  { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/views/404.vue'), },
+  {
+    path: '/user/:userId',
+    name: 'user',
+    component: () => import('@/views/UserUserId.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('@/views/404.vue'),
+  },
 ]
 
 const router = createRouter({

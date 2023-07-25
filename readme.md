@@ -43,6 +43,7 @@ docker compose up
 ## 開発参考情報
 - [vuetify3 guide](https://vuetifyjs.com/en/getting-started/installation/)
 - [vue-router guide](https://router.vuejs.org/guide/)
+  - [ルートオブジェクトプロパティ](https://v3.router.vuejs.org/ja/api/#%E3%83%AB%E3%83%BC%E3%83%88%E3%82%AA%E3%83%95%E3%82%99%E3%82%B7%E3%82%99%E3%82%A7%E3%82%AF%E3%83%88%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3)
 
 ## 初期構築
 - [`yarn create vuetify` で初期構築](https://vuetifyjs.com/en/getting-started/installation/)
@@ -62,6 +63,10 @@ yarn create vuetify
 ✔ Use Pinia? … No / Yes
 ✔ Use ESLint? … No / Yes
 ✔ Would you like to install dependencies with yarn, npm, or pnpm? › yarn
+```
+
+## パッケージ追加
+```
 
 # pugの追加
 yarn add -D vite-plugin-pug
@@ -172,3 +177,7 @@ export default defineConfig({
   }
 }
 ```
+
+
+## vue2 -> vue3 で開発時に躓くポイント
+- ['v-slot' directive doesn't support any modifierとエラーが出たときの対処方法。](https://qiita.com/pokoTan2525/items/c698457d2473dab0868f)
