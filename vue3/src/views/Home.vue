@@ -6,7 +6,6 @@ user-data-table(
 
 user-id-text-field(v-model="store.tUser.userId")
 user-name-text-field(v-model="store.tUser.userName")
-
 user-role-select(
   :items="store.userRoleItems"
   v-model="store.tUser.userRole"
@@ -16,6 +15,7 @@ add-button(
   @click="store.userAppend"
 )
 
+div {{$t("hello")}}
 </template>
 
 <script lang="ts" setup>

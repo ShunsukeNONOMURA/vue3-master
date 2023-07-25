@@ -178,6 +178,9 @@ export default defineConfig({
 }
 ```
 
-
 ## vue2 -> vue3 で開発時に躓くポイント
 - ['v-slot' directive doesn't support any modifierとエラーが出たときの対処方法。](https://qiita.com/pokoTan2525/items/c698457d2473dab0868f)
+
+## memo
+- [Vue I18n での多言語化に対応する](https://zenn.dev/sa2knight/books/storybook-7-with-vue-3/viewer/vue-i18n)
+  - yarn add vue-i18n

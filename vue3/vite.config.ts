@@ -25,7 +25,12 @@ export default defineConfig({
       locals
     ),
   ],
-  define: { 'process.env': {} },
+  define: { 
+    'process.env': {},
+    // [vue-18nで出る警告](https://specialpark.net/archives/121)
+    __VUE_I18N_FULL_INSTALL__: true,
+    __VUE_I18N_LEGACY_API__: false,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
