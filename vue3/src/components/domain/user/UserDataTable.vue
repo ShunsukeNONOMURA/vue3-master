@@ -13,8 +13,8 @@ base-data-table(
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const props = defineProps({
   items: {
@@ -26,25 +26,25 @@ const props = defineProps({
 })
 const headers = [
   {
-    title: t("domain.user.id"),
+    title: t('domain.user.id'),
     align: 'start',
     // sortable: false,
     key: 'userId',
   },
   {
-    title: t("domain.user.name"),
+    title: t('domain.user.name'),
     align: 'start',
     // sortable: false,
     key: 'userName',
   },
   {
-    title: t("domain.user.role"),
+    title: t('domain.user.role'),
     align: 'start',
     // sortable: false,
     key: 'userRole',
   },
   {
-    title: t("case.action"),
+    title: t('case.action'),
     align: 'start',
     // sortable: false,
     key: 'actions',

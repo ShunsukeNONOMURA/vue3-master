@@ -1,6 +1,6 @@
 <template lang="pug">
 application-header(
-  title='title'
+  :title='title'
 )
 
 user-data-table(
@@ -17,17 +17,19 @@ user-role-select(
 create-button(
   @click="store.userAppend"
 )
-search-button()
 
+
+search-button()
 base-date-picker()
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+const title = t('view.home')
+document.title=title
+
 import { useAppStore } from '@/store/app'
 const store = useAppStore()
-
-onMounted(() => {
-  store.updateUserList()
-})
+store.updateUserList()
 </script>

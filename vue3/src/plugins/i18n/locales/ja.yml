@@ -1,6 +1,6 @@
 case:
   action: アクション
-  add: 追加
+  create: 作成
   delete: 削除
   search: 検索
 domain:
@@ -8,3 +8,8 @@ domain:
     id: ユーザID
     name: ユーザ名
     role: ユーザロール
+view:
+  home: ホーム
+  # userUserId: "ユーザページ %{userName}"
+  userUserId: "%{userName}"
+  notFound: 404 not found
