@@ -1,6 +1,8 @@
 case:
+  action: アクション
   add: 追加
   delete: 削除
+  search: 検索
 domain:
   user:
     id: ユーザID

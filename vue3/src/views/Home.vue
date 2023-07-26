@@ -1,4 +1,8 @@
 <template lang="pug">
+application-header(
+  title='title'
+)
+
 user-data-table(
   :items="store.users"
   @onDelete="store.onDelete"
@@ -10,9 +14,10 @@ user-role-select(
   :items="store.userRoleItems"
   v-model="store.tUser.userRole"
 )
-add-button(
+create-button(
   @click="store.userAppend"
 )
+search-button()
 
 base-date-picker()
 </template>
