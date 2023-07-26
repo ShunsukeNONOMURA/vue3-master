@@ -3,21 +3,17 @@ import { defineStore } from 'pinia'
 import { ref, Ref } from 'vue'
 
 import { User } from '@/applications/model/user'
-import {
-  UserFactory,
-  UserRepository,
-} from '@/applications/service/user-repository'
+import { UserService } from '@/applications/service/user'
 
-const userFactory = new UserFactory()
-const userRepository = new UserRepository()
+const userService = new UserService()
 
 export const useAppStore = defineStore('app', () => {
   const userRoleItems = ref(['guest', 'admin'])
   const users: Ref<User[]> = ref([])
-  const tUser: Ref<User> = ref(userFactory.create({}))
+  const tUser: Ref<User> = ref(userService.create({}))
 
   function updateUserList() {
-    users.value = userRepository.listing()
+    users.value = userService.listing()
   }
 
   function updateUserRoleList() {
@@ -25,7 +21,11 @@ export const useAppStore = defineStore('app', () => {
   }
 
   function findUser(userId: string) {
-    return userRepository.find(userId as string)
+    return userService.find(userId as string)
+  }
+
+  function search(query: any){
+    return userService.search(query)
   }
 
   function userAppend() {
@@ -34,18 +34,18 @@ export const useAppStore = defineStore('app', () => {
       console.log(`${user.userId} is existed`)
       return
     }
-    userRepository.store(tUser.value)
+    userService.store(tUser.value)
     // 入力欄初期化
-    tUser.value = userFactory.create({})
+    tUser.value = userService.create({})
     // 一覧
-    users.value = userRepository.listing()
+    users.value = userService.listing()
   }
 
   function onDelete(user: User) {
     // 削除実行
-    userRepository.delete(user)
+    userService.delete(user)
     // 一覧
-    users.value = userRepository.listing()
+    users.value = userService.listing()
   }
 
   return {
@@ -57,5 +57,6 @@ export const useAppStore = defineStore('app', () => {
     findUser,
     userAppend,
     onDelete,
+    search,
   }
 })

@@ -1,8 +1,8 @@
 <template lang="pug">
-v-app-bar(
+v-footer(
     app
-    flat
     border
+    absolute
 )
     slot
 </template>

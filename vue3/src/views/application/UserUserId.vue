@@ -14,5 +14,5 @@ import { useAppStore } from '@/store/app'
 const store = useAppStore()
 const user = store.findUser(route.params.userId as string)
 
-document.title=t('view.userUserId', {userName: user.userName})
+document.title = t('view.userUserId', { userName: user.userName })
 </script>

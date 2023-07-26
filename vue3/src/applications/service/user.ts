@@ -1,16 +1,9 @@
 import { User } from '@/applications/model/user'
 
-export class UserFactory {
-  create(props: any) {
-    props.userRole = 'guest'
-    return new User(props)
-  }
-}
-
-export class UserRepository {
+export class UserService {
   userList: Array<User>
   constructor() {
-    const len = 10
+    const len = 5
     this.userList = [...new Array(len).keys()].map((number) => {
       return new User({
         userId: `${number}`,
@@ -19,6 +12,10 @@ export class UserRepository {
       })
     })
   }
+  create(props: any) {
+    props.userRole = 'guest'
+    return new User(props)
+  }
   find(userId: string) {
     const users = this.userList.filter((tUser) => {
       return tUser.userId == userId
@@ -26,8 +23,13 @@ export class UserRepository {
     return users[0]
     // return ?? null;
   }
-  listing() {
+  search(query: any) {
     // const len = 10
+    return this.userList.filter((tUser) => {
+      return tUser.userId == query.q
+    })
+  }
+  listing() {
     return this.userList
   }
   store(user: User) {
@@ -40,3 +42,4 @@ export class UserRepository {
     })
   }
 }
+

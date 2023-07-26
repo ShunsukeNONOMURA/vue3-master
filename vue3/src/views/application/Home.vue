@@ -1,8 +1,4 @@
 <template lang="pug">
-application-header(
-  :title='title'
-)
-
 user-data-table(
   :items="store.users"
   @onDelete="store.onDelete"
@@ -18,18 +14,28 @@ create-button(
   @click="store.userAppend"
 )
 
-
 search-button()
 base-date-picker()
 </template>
 
 <script lang="ts" setup>
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
+const router = useRouter()
+
+import { defineComponent, inject } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const title = t('view.home')
-document.title=title
+document.title = title
+console.log(inject('applicationHeaderTitle'))
+
+const applicationHeaderTitle = 'home'
 
 import { useAppStore } from '@/store/app'
 const store = useAppStore()
+
 store.updateUserList()
+
+store.search(route.query.q)
 </script>
