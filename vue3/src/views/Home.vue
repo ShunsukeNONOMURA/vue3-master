@@ -14,6 +14,7 @@ add-button(
   @click="store.userAppend"
 )
 
+base-date-picker()
 </template>
 
 <script lang="ts" setup>
