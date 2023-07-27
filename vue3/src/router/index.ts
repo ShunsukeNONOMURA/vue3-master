@@ -6,9 +6,13 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/Application.vue'),
     children: [
+      { 
+        path: '', 
+        redirect: { name: 'home' },
+      },
       {
-        path: '',
-        name: 'Home',
+        path: '/home',
+        name: 'home',
         component: () =>
           import(/* webpackChunkName: "home" */ '@/views/application/Home.vue'),
       },

@@ -25,8 +25,9 @@ export class UserService {
   }
   search(query: any) {
     // const len = 10
+    return []
     return this.userList.filter((tUser) => {
-      return tUser.userId == query.q
+      return tUser.userId == query.q ?? ''
     })
   }
   listing() {

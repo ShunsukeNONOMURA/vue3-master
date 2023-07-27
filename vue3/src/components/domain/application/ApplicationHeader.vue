@@ -41,7 +41,7 @@ const props = defineProps({
 function onSearch() {
   console.log(searchText.value)
   router.push({
-    path: '/',
+    path: '/home',
     // path: '/' + searchText.value,
     query: {
       q: searchText.value,
