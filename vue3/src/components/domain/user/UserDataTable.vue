@@ -5,11 +5,14 @@ base-data-table(
 )
     template(#[`item.userId`]="{ item }")
         router-link(:to="`/user/${item.raw.userId}`") {{ item.raw.userId }}
+    template(#[`item.userCreationDatetime`]="{ item }")
+        | {{ item.raw.userCreationDatetime.toLocaleString() }}
     template(#[`item.actions`]="{ item }")
         delete-icon-button(
           size="x-small"
           @click="onDelete(item.raw)"
         )
+div {{ props.items }}
 </template>
 
 <script lang="ts" setup>
@@ -42,6 +45,12 @@ const headers = [
     align: 'start',
     // sortable: false,
     key: 'userRole',
+  },
+  {
+    title: t('domain.user.creationDatetime'),
+    align: 'start',
+    // sortable: false,
+    key: 'userCreationDatetime',
   },
   {
     title: t('case.action'),

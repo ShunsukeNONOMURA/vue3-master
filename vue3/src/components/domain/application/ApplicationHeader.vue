@@ -1,22 +1,25 @@
 <template lang="pug">
 base-header(
 )
+  v-app-bar-nav-icon(@click.stop="drawerComputed = !drawerComputed")
   router-link(to="/")
     application-icon-button
   //- v-toolbar-title {{props.title}}
-  v-text-field(
+  search-text-field(
     v-model="searchText"
     @search="onSearch"
-    @keyup.enter="onSearch"
-    placeholder="キーワードを入力"
-    density="comfortable"
-    rounded
-    hide-details
   )
+  notice-icon-button(id="menu-activator")
+  v-menu(activator="#menu-activator")
+    v-list
+      v-list-item
+        v-list-item-title hoge
+
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+// import { ref } from 'vue'
+import { computed, defineProps, defineEmits, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
@@ -36,10 +39,17 @@ const props = defineProps({
       return '/'
     },
   },
+  drawer: {
+    type: Boolean,
+    default: () => {
+      return false
+    },
+  },
 })
 
 function onSearch() {
-  console.log(searchText.value)
+  // console.log(searchText.value)
+  if (searchText.value == '') return
   router.push({
     path: '/home',
     // path: '/' + searchText.value,
@@ -48,4 +58,14 @@ function onSearch() {
     },
   })
 }
+
+const emit = defineEmits<{
+  (e: 'update:drawer', model: boolean): void
+}>()
+const drawerComputed = computed({
+  get: () => props.text,
+  set: (value) => {
+    emit('update:drawer', value)
+  },
+})
 </script>

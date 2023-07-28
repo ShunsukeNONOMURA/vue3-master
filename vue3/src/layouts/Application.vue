@@ -1,19 +1,24 @@
 <template lang="pug">
-application-header(
-  :title='applicationHeaderTitle'
+application-drawer(
+  v-model="drawer"
 )
-router-view(:applicationHeaderTitle='applicationHeaderTitle')
+application-header(
+  v-model:drawer="drawer"
+)
+router-view()
 application-footer()
 </template>
 
 <script setup lang="ts">
-const applicationHeaderTitle = 'tddi'
-const props = defineProps({
-  title: {
-    type: String,
-    default: () => {
-      return 't'
-    },
-  },
-})
+// const applicationHeaderTitle = 'tddi'
+import { ref } from 'vue'
+const drawer = ref(false)
+// const props = defineProps({
+//   title: {
+//     type: String,
+//     default: () => {
+//       return 't'
+//     },
+//   },
+// })
 </script>

@@ -1,10 +1,15 @@
 <template lang="pug">
 base-text-field(
     append-inner-icon="mdi-magnify"
-    label="search"
+
     clearable
-    variant="solo"
+    placeholder="キーワードを入力"
+    density="comfortable"
+    hide-details
+    variant="outlined"
+
     @click:append-inner="onSearch"
+    @keyup.enter="onSearch"
 )
 </template>
 

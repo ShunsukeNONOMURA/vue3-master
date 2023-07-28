@@ -8,6 +8,7 @@ domain:
     id: ユーザID
     name: ユーザ名
     role: ユーザロール
+    creationDatetime: ユーザ作成時刻
 view:
   home: ホーム
   # userUserId: "ユーザページ %{userName}"

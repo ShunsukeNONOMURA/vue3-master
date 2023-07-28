@@ -6,15 +6,19 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/Application.vue'),
     children: [
-      { 
-        path: '', 
+      {
+        path: '',
         redirect: { name: 'home' },
       },
       {
         path: '/home',
         name: 'home',
-        component: () =>
-          import(/* webpackChunkName: "home" */ '@/views/application/Home.vue'),
+        component: () => import('@/views/application/Home.vue'),
+      },
+      {
+        path: '/setting',
+        name: 'setting',
+        component: () => import('@/views/application/Setting.vue'),
       },
       {
         path: '/user/:userId',

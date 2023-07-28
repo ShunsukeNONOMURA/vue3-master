@@ -9,11 +9,13 @@ export class UserService {
         userId: `${number}`,
         userName: 'name_' + number,
         userRole: 'guest',
+        userCreationDatetime: new Date(),
       })
     })
   }
   create(props: any) {
     props.userRole = 'guest'
+    props.userCreationDatetime = new Date()
     return new User(props)
   }
   find(userId: string) {
@@ -24,11 +26,19 @@ export class UserService {
     // return ?? null;
   }
   search(query: any) {
-    // const len = 10
-    return []
-    return this.userList.filter((tUser) => {
-      return tUser.userId == query.q ?? ''
+    console.log('on search')
+    console.log(query)
+    const userId = query.q ?? ''
+    if (userId == '') return this.userList
+    const users = this.userList.filter((tUser) => {
+      return (
+        tUser.userId.includes(query.q ?? '') ||
+        tUser.userName.includes(query.q ?? '') ||
+        tUser.userRole.includes(query.q ?? '')
+      )
     })
+    console.log(users)
+    return users
   }
   listing() {
     return this.userList
@@ -43,4 +53,3 @@ export class UserService {
     })
   }
 }
-

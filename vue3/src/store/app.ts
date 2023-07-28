@@ -24,8 +24,9 @@ export const useAppStore = defineStore('app', () => {
     return userService.find(userId as string)
   }
 
-  function search(query: any){
-    return userService.search(query)
+  function search(query: any) {
+    // return userService.search(query)
+    users.value = userService.search(query)
   }
 
   function userAppend() {
