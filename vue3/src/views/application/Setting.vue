@@ -16,9 +16,6 @@ v-snackbar(v-model="snackbar")
 <script lang="ts" setup>
 import {
   computed,
-  defineProps,
-  withDefaults,
-  defineEmits,
   ref,
   watch,
 } from 'vue'

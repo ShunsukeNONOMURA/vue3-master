@@ -19,7 +19,7 @@ base-header(
 
 <script lang="ts" setup>
 // import { ref } from 'vue'
-import { computed, defineProps, defineEmits, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()

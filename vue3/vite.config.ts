@@ -30,6 +30,8 @@ export default defineConfig({
     ),
     // https://zenn.dev/smiura0222/articles/c8d9f5afa074cc
     vueI18n({
+      // https://github.com/intlify/vite-plugin-vue-i18n/issues/74#issuecomment-815594942
+      runtimeOnly: false, // これがないとビルドできないらしい
       include: resolve(
         dirname(fileURLToPath(import.meta.url)),
         "./src/plugins/i18n/locales/**"

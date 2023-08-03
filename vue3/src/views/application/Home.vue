@@ -53,7 +53,7 @@ updateView()
 // })
 
 watch(route, () => {
-  console.log(route.query);
+  console.log(route.query)
   updateView()
 })
 </script>
